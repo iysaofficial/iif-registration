@@ -1,18 +1,38 @@
-import { Inter } from "next/font/google";
 import { useState, useEffect } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Internationalparticipants() {
+export default function Indonesiaparticipants() {
   const [selectedMaxNamaLengkap, setselectedMaxNamaLengkap] = useState("");
   const maxNameChars = 180; // batasan maksimal karakter
   const [selectedMaxProject, setselectedMaxProject] = useState("");
   const maxProjectChars = 160; // batasan maksimal karakter
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [categoryPrice, setCategoryPrice] = useState("");
 
   const handleInputNameChange = (e) => {
     const { value } = e.target;
     if (value.length <= maxNameChars) {
       setselectedMaxNamaLengkap(value);
+    }
+  };
+
+  const handleCategoryChange = (e) => {
+    const value = e.target.value;
+    setSelectedCategory(value);
+
+    // Logika untuk menentukan harga berdasarkan kategori yang dipilih
+    switch (value) {
+      case "Social Science":
+        setCategoryPrice("Rp 950.000");
+        break;
+      case "Life Sciences":
+        setCategoryPrice("Rp 950.000");
+        break;
+      case "PHYSICS AND ENGINEERING":
+        setCategoryPrice("Rp 950.000");
+        break;
+      default:
+        setCategoryPrice("");
+        break;
     }
   };
 
@@ -24,8 +44,7 @@ export default function Internationalparticipants() {
   };
 
   useEffect(() => {
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbx5ZGgDHD5-Vd4GO7Rcys98XFFsXFGuLMTul0XxwmsX69SezOjUXjEz2HjizqfhbeWb/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx5ZGgDHD5-Vd4GO7Rcys98XFFsXFGuLMTul0XxwmsX69SezOjUXjEz2HjizqfhbeWb/exec";
 
     const form = document.forms["regist-form"];
     var buttonCounter = 0;
@@ -49,9 +68,7 @@ export default function Internationalparticipants() {
         }
         form.reset();
       };
-
       form.addEventListener("submit", handleSubmit);
-
       // Membersihkan event listener saat komponen dilepas
       return () => {
         form.removeEventListener("submit", handleSubmit);
@@ -64,10 +81,9 @@ export default function Internationalparticipants() {
       <section className="registration-section">
         <div className="container">
           <div className="content">
-            <div className="sub">FORMULIR PENDAFTARAN</div>
+            <h1 className="sub">FORMULIR PENDAFTARAN</h1>
             <h1 className="garis-bawah"></h1>
-            <br />
-            <br />
+            <br></br>
             <h4>
               HALLO PESERTA IIF NASIONAL 2025, Mohon perhatikan informasi berikut ini
               sebelum mengisi formulir pendaftaran :
@@ -78,13 +94,6 @@ export default function Internationalparticipants() {
               tidak ada kesalahan penulisan. Pastikan juga bahwa data yang
               dikirim sudah final dan tidak mengalami perubahan.
             </p>
-            {/* <p>
-            2. Pastikan{" "}
-              <span className="fw-bold">&quot;INVOICE ID&quot;</span> sudah
-              terbuat agar tombol untuk{" "}
-              <span className="fw-bold">&quot;KIRIM &quot;</span> data bisa
-              muncul.
-            </p> */}
             <p>
               2. Setelah memastikan data sudah benar, Anda dapat mengklik tombol
               <span className="fw-bold"> &quot;KIRIM&quot;</span> cukup sekali
@@ -98,7 +107,7 @@ export default function Internationalparticipants() {
               waktu pendaftaran, Letter of Acceptance (LOA) akan dikirimkan ke
               alamat email team leader.
             </p>
-            <br />
+            <br></br>
 
             <form name="regist-form">
               <h1>BIODATA</h1>
@@ -119,20 +128,6 @@ export default function Internationalparticipants() {
                   />
                 </div>
                 <div className="input-box">
-                  <label className="form-label" value="Online Competition">
-                  Kategori Kompetisi
-                  </label>
-                  <input
-                    type="text"
-                    id="CATEGORY_COMPETITION"
-                    name="CATEGORY_COMPETITION"
-                    className="form-control"
-                    placeholder="Choose Category Competition"
-                    value="Online Competition"
-                    readOnly
-                  />
-                </div>
-                {/* <div className="input-box">
                   <label for="CATEGORY_COMPETITION" className="form-label">
                     Kategori Kompetisi
                   </label>
@@ -148,8 +143,14 @@ export default function Internationalparticipants() {
                     <option value="Online Competition">
                       Online Competition
                     </option>
+                    {/* <option value="Offline Competition">
+                      Offline Competition
+                    </option>
+                    <option value="Offline Competition + Excursion">
+                      Offline Competition + Excursion
+                    </option> */}
                   </select>
-                </div> */}
+                </div>
               </div>
 
               <div className="user-details">
@@ -220,7 +221,7 @@ export default function Internationalparticipants() {
                     id="LEADER_EMAIL"
                     name="LEADER_EMAIL"
                     className="form-control"
-                    placeholder="Input Your Leader Email Address"
+                    placeholder="Masukan Alamat Email Ketua Tim"
                     required
                   />
                 </div>
@@ -404,6 +405,7 @@ export default function Internationalparticipants() {
                 <h1 className="garis-bawah"></h1>
               </div>
               <div className="user-details">
+                {/* Input Judul Proyek */}
                 <div className="input-box">
                   <label for="PROJECT_TITLE" className="form-label">
                     Judul Proyek
@@ -428,35 +430,35 @@ export default function Internationalparticipants() {
                     {selectedMaxProject.length} / {maxProjectChars} character
                   </p>
                 </div>
+
+                {/* Dropdown Kategori */}
                 <div className="input-box">
-                  <label for="CATEGORIES" className="form-label">
+                  <label htmlFor="CATEGORIES" className="form-label">
                     Kategori
                   </label>
                   <select
-                    type="text"
                     id="CATEGORIES"
                     name="CATEGORIES"
                     className="form-control"
-                    placeholder="--Choose-- "
                     required
+                    onChange={handleCategoryChange}
                   >
                     <option value="">--Pilih Kategori--</option>
-                    <option value="Social Science">Social Science</option>
-                    <option value="Environmental Science">
-                      Environmental Science
-                    </option>
-                    <option value="Innovation Science">
-                      Innovation Science
-                    </option>
+                    <option value="Innovation science">Innovation science</option>
                     <option value="Life Sciences">Life Sciences</option>
-                    {/* <option value="Engineering and Technology">
-                      Engineering and Technology
-                    </option> */}
-                    {/* <option value="Physics">Physics</option> */}
+                    <option value="Environmental science">
+                      Environmental science
+                    </option>
+                    <option value="Social Science">
+                      Social Science
+                    </option>
                   </select>
                 </div>
+
+
+                {/* Input Lainnya */}
                 <div className="input-box">
-                  <label for="YES_NO" className="form-label">
+                  <label htmlFor="YES_NO" className="form-label">
                     Apakah judul proyek pernah berpartisipasi dalam kompetisi
                     penemuan dan inovasi sebelumnya?
                   </label>
@@ -465,7 +467,6 @@ export default function Internationalparticipants() {
                     id="YES_NO"
                     name="YES_NO"
                     className="form-control"
-                    placeholder="--Choose Information Resources-- "
                     required
                   >
                     <option>--Pilih--</option>
@@ -476,7 +477,7 @@ export default function Internationalparticipants() {
 
                 <div className="input-box">
                   <label
-                    for="JUDUL_PERNAH_BERPATISIPASI"
+                    htmlFor="JUDUL_PERNAH_BERPATISIPASI"
                     className="form-label"
                   >
                     Jika judul proyek pernah mengikuti kompetisi invensi dan
@@ -487,9 +488,24 @@ export default function Internationalparticipants() {
                     id="JUDUL_PERNAH_BERPATISIPASI"
                     name="JUDUL_PERNAH_BERPATISIPASI"
                     className="form-control"
-                    placeholder="Masukan Nama Kompetisinya"
+                    placeholder="Masukkan Nama Kompetisinya"
                   ></textarea>
-                  <div className="mt-5" id="form_alerts"></div>
+                </div>
+
+                {/* Kolom Harga */}
+                <div className="input-box invisible">
+                  <label htmlFor="CATEGORY_PRICE" className="form-label ">
+                    Harga Pendaftaran
+                  </label>
+                  <input
+                    type="text"
+                    id="CATEGORY_PRICE"
+                    name="CATEGORY_PRICE"
+                    className="form-control"
+                    value={categoryPrice}
+                    readOnly
+                    placeholder="Harga akan muncul berdasarkan kategori yang dipilih"
+                  />
                 </div>
               </div>
               {/* DETAIL PROJECT END */}
@@ -551,9 +567,7 @@ export default function Internationalparticipants() {
                 </div>
                 <div className="input-box">
                   <label for="FILE" className="form-label">
-                    Jika Anda mendapatkan pendaftaran gratis dari acara
-                    sebelumnya atau kegiatan kunjungan sekolah sebelumnya, harap
-                    lampirkan bukti dokumentasi{" "}
+                    Upload Extended Abstract{" "}
                   </label>
                   <input
                     type="url"
@@ -566,7 +580,6 @@ export default function Internationalparticipants() {
               </div>
               {/* GENERAL INFORMATION END */}
               {/* GENERAL INFORMATION END */}
-
               <div className="button">
                 <input type="submit" value="KIRIM" />
               </div>
@@ -574,6 +587,6 @@ export default function Internationalparticipants() {
           </div>
         </div>
       </section>
-    </>
+      </>
   );
 }
