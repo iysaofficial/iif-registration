@@ -22,13 +22,16 @@ export default function Indonesiaparticipants() {
     // Logika untuk menentukan harga berdasarkan kategori yang dipilih
     switch (value) {
       case "Social Science":
-        setCategoryPrice("Rp 950.000");
+        setCategoryPrice("Rp 900.000");
         break;
       case "Life Sciences":
-        setCategoryPrice("Rp 950.000");
+        setCategoryPrice("Rp 900.000");
         break;
-      case "PHYSICS AND ENGINEERING":
-        setCategoryPrice("Rp 950.000");
+      case "Environmental science":
+        setCategoryPrice("Rp 900.000");
+        break;
+      case "Innovation science":
+        setCategoryPrice("Rp 900.000");
         break;
       default:
         setCategoryPrice("");
@@ -44,7 +47,7 @@ export default function Indonesiaparticipants() {
   };
 
   useEffect(() => {
-    const scriptURL = "https://script.google.com/macros/s/AKfycbx5ZGgDHD5-Vd4GO7Rcys98XFFsXFGuLMTul0XxwmsX69SezOjUXjEz2HjizqfhbeWb/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwKgpF3koWBSx_UnLeeymke7H8viXbxfb9dadMtIaVdmR78oP3gOGE6H1_j3wJvnNbRFA/exec";
 
     const form = document.forms["regist-form"];
     var buttonCounter = 0;
@@ -85,7 +88,7 @@ export default function Indonesiaparticipants() {
             <h1 className="garis-bawah"></h1>
             <br></br>
             <h4>
-              HALLO PESERTA IIF NASIONAL 2025, Mohon perhatikan informasi berikut ini
+              HALLO PESERTA OSPC 2025, Mohon perhatikan informasi berikut ini
               sebelum mengisi formulir pendaftaran :
             </h4>
             <br />
@@ -128,28 +131,18 @@ export default function Indonesiaparticipants() {
                   />
                 </div>
                 <div className="input-box">
-                  <label for="CATEGORY_COMPETITION" className="form-label">
+                  <label className="form-label" value="Peserta Indonesia">
                     Kategori Kompetisi
                   </label>
-                  <select
+                  <input
                     type="text"
                     id="CATEGORY_COMPETITION"
                     name="CATEGORY_COMPETITION"
                     className="form-control"
-                    placeholder="Choose Category Competition "
-                    required
-                  >
-                    <option value="">--Pilih Kategori Kompetisi--</option>
-                    <option value="Online Competition">
-                      Online Competition
-                    </option>
-                    {/* <option value="Offline Competition">
-                      Offline Competition
-                    </option>
-                    <option value="Offline Competition + Excursion">
-                      Offline Competition + Excursion
-                    </option> */}
-                  </select>
+                    placeholder="Categories Competition"
+                    value="Online Competition"
+                    readOnly
+                  />
                 </div>
               </div>
 
@@ -444,13 +437,10 @@ export default function Indonesiaparticipants() {
                     onChange={handleCategoryChange}
                   >
                     <option value="">--Pilih Kategori--</option>
-                    <option value="Innovation science">Innovation science</option>
+                    <option value="Social Science">Social Science</option>
                     <option value="Life Sciences">Life Sciences</option>
-                    <option value="Environmental science">
-                      Environmental science
-                    </option>
-                    <option value="Social Science">
-                      Social Science
+                    <option value="PHYSICS AND ENGINEERING">
+                      PHYSICS AND ENGINEERING
                     </option>
                   </select>
                 </div>
@@ -539,7 +529,7 @@ export default function Indonesiaparticipants() {
                 </div>
                 <div className="input-box">
                   <label for="INFORMATION_RESOURCES" className="form-label">
-                    Sumber Informasi Kompetisi IIF NASIONAL 2025
+                    Sumber Informasi Kompetisi OSPC 2025
                   </label>
                   <select
                     type="text"
@@ -551,16 +541,16 @@ export default function Indonesiaparticipants() {
                   >
                     <option value="">--Pilih Sumber Informasi--</option>
                     <option value="IYSA Instagram">IYSA Instagram</option>
-                    <option value="IIF NASIONAL Instagram">IIF NASIONAL Instagram</option>
+                    <option value="OSPC Instagram">OSPC Instagram</option>
                     <option value="Pembimbing/Sekolah">
                       Pembimbing/Sekolah
                     </option>
                     <option value="IYSA FaceBook">IYSA FaceBook</option>
                     <option value="IYSA Linkedin">IYSA Linkedin</option>
                     <option value="IYSA Website">IYSA Website</option>
-                    <option value="IIF NASIONAL Website">IIF NASIONAL Website</option>
+                    <option value="OSPC Website">OSPC Website</option>
                     <option value="IYSA Email">IYSA Email</option>
-                    <option value="IIF NASIONAL Email">IIF NASIONAL Email</option>
+                    <option value="OSPC Email">OSPC Email</option>
                     <option value="Acara Sebelumnya">Acara Sebelumnya</option>
                     <option value="Lainnya">Lainnya</option>
                   </select>
@@ -587,6 +577,6 @@ export default function Indonesiaparticipants() {
           </div>
         </div>
       </section>
-      </>
+    </>
   );
 }
