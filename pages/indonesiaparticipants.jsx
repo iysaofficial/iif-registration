@@ -88,7 +88,7 @@ export default function Indonesiaparticipants() {
             <h1 className="garis-bawah"></h1>
             <br></br>
             <h4>
-              HALLO PESERTA OSPC 2025, Mohon perhatikan informasi berikut ini
+              HALLO PESERTA IIF Nasional 2025, Mohon perhatikan informasi berikut ini
               sebelum mengisi formulir pendaftaran :
             </h4>
             <br />
@@ -529,7 +529,7 @@ export default function Indonesiaparticipants() {
                 </div>
                 <div className="input-box">
                   <label for="INFORMATION_RESOURCES" className="form-label">
-                    Sumber Informasi Kompetisi OSPC 2025
+                    Sumber Informasi Kompetisi IIF Nasional 2025
                   </label>
                   <select
                     type="text"
@@ -541,16 +541,16 @@ export default function Indonesiaparticipants() {
                   >
                     <option value="">--Pilih Sumber Informasi--</option>
                     <option value="IYSA Instagram">IYSA Instagram</option>
-                    <option value="OSPC Instagram">OSPC Instagram</option>
+                    <option value="IIF Nasional Instagram">IIF Nasional Instagram</option>
                     <option value="Pembimbing/Sekolah">
                       Pembimbing/Sekolah
                     </option>
                     <option value="IYSA FaceBook">IYSA FaceBook</option>
                     <option value="IYSA Linkedin">IYSA Linkedin</option>
                     <option value="IYSA Website">IYSA Website</option>
-                    <option value="OSPC Website">OSPC Website</option>
+                    <option value="IIF Nasional Website">IIF Nasional Website</option>
                     <option value="IYSA Email">IYSA Email</option>
-                    <option value="OSPC Email">OSPC Email</option>
+                    <option value="IIF Nasional Email">IIF Nasional Email</option>
                     <option value="Acara Sebelumnya">Acara Sebelumnya</option>
                     <option value="Lainnya">Lainnya</option>
                   </select>
