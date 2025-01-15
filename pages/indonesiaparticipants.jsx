@@ -7,6 +7,9 @@ export default function Indonesiaparticipants() {
   const maxProjectChars = 160; // batasan maksimal karakter
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categoryPrice, setCategoryPrice] = useState("");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const handleInputNameChange = (e) => {
     const { value } = e.target;
@@ -50,34 +53,43 @@ export default function Indonesiaparticipants() {
     const scriptURL = "https://script.google.com/macros/s/AKfycbwKgpF3koWBSx_UnLeeymke7H8viXbxfb9dadMtIaVdmR78oP3gOGE6H1_j3wJvnNbRFA/exec";
 
     const form = document.forms["regist-form"];
-    var buttonCounter = 0;
+    let buttonCounter = 0;
 
     if (form) {
       const handleSubmit = async (e) => {
         e.preventDefault();
-        if (buttonCounter == 0) {
+        if (buttonCounter === 0) {
+          buttonCounter++; // Cegah klik ganda
+          setIsLoading(true); // Tampilkan loader
           try {
-            buttonCounter++;
-            await fetch(scriptURL, {
+            const response = await fetch(scriptURL, {
               method: "POST",
               body: new FormData(form),
             });
-            // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
-            window.location.href = "/homeregist"; // Gantikan dengan URL halaman sukses Anda
+            if (response.ok) {
+              setStatusMessage("Data berhasil dikirim!");
+              form.reset(); // Reset form hanya jika pengiriman sukses
+              setTimeout(() => {
+                window.location.href = "/thankyoupage"; // Redirect setelah 1 detik
+              }, 1000);
+            } else {
+              setStatusMessage("Terjadi kesalahan saat mengirim data.");
+            }
           } catch (error) {
-            console.error("Error saat mengirim data:", error);
-            // Handle error jika diperlukan
+            setStatusMessage("Terjadi kesalahan saat mengirim data.");
+          } finally {
+            setIsLoading(false); // Sembunyikan loader
+            buttonCounter = 0; // Reset counter untuk klik selanjutnya
           }
         }
-        form.reset();
       };
       form.addEventListener("submit", handleSubmit);
-      // Membersihkan event listener saat komponen dilepas
       return () => {
         form.removeEventListener("submit", handleSubmit);
       };
     }
   }, []);
+
 
   return (
     <>
@@ -574,6 +586,18 @@ export default function Indonesiaparticipants() {
                 <input type="submit" value="KIRIM" />
               </div>
             </form>
+
+             {/* Loader dan Status Message */}
+             {isLoading && (
+              <div className="overlay-loader">
+                <div className="loader"></div>
+                <div>
+                  {statusMessage && (
+                    <p className="status-message">{statusMessage}</p>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
