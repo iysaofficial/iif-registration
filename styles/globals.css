@@ -491,7 +491,6 @@ input[type="checkbox"] {
 .thankyou {
   /* padding: 75px 25px 75px 25px  ; */
   height: 100vh;
-  background: var(--warna-tulisan);
   display: flex;
   justify-content: center;
   align-items: center;

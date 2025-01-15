@@ -1,19 +1,17 @@
 import Link from "next/link";
-const Thankyou = () => {
+export default function thankyoupage() {
   return (
     <>
-    <section className="thankyou">
-      <div>
-        <h1>
-          Thank you for registering! We appreciate your participation and look
-          forward to your involvement.
-        </h1>
-        <Link href="/" legacyBehavior>
-            <a>Back to registration menu</a>
-          </Link>      </div>
-    </section>
+      <section className="thankyou">
+        <div>
+          <h1>
+          Terima kasih telah mendaftar! Kami menghargai partisipasi Anda dan menantikan keterlibatan Anda.
+          </h1>
+          <Link href="/" legacyBehavior>
+            <a>Kembali ke menu pendaftaran</a>
+          </Link>{" "}
+        </div>
+      </section>
     </>
   );
-};
-
-export default Thankyou;
+}
