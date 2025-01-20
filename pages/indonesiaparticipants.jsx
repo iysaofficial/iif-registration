@@ -30,10 +30,10 @@ export default function Indonesiaparticipants() {
       case "Life Sciences":
         setCategoryPrice("Rp 900.000");
         break;
-      case "Environmental science":
+      case "Environmental Science":
         setCategoryPrice("Rp 900.000");
         break;
-      case "Innovation science":
+      case "Innovation Science":
         setCategoryPrice("Rp 900.000");
         break;
       default:
@@ -451,8 +451,11 @@ export default function Indonesiaparticipants() {
                     <option value="">--Pilih Kategori--</option>
                     <option value="Social Science">Social Science</option>
                     <option value="Life Sciences">Life Sciences</option>
-                    <option value="PHYSICS AND ENGINEERING">
-                      PHYSICS AND ENGINEERING
+                    <option value="Innovoation Science">
+                      Innovoation Science
+                    </option>
+                    <option value="Environmental Science">
+                      Environmental Science
                     </option>
                   </select>
                 </div>
