@@ -570,18 +570,6 @@ export default function Indonesiaparticipants() {
                     <option value="Lainnya">Lainnya</option>
                   </select>
                 </div>
-                <div className="input-box">
-                  <label for="FILE" className="form-label">
-                    Upload Extended Abstract{" "}
-                  </label>
-                  <input
-                    type="url"
-                    id="FILE"
-                    name="FILE"
-                    className="form-control"
-                    placeholder="Upload Link File Drive"
-                  />
-                </div>
               </div>
               {/* GENERAL INFORMATION END */}
               {/* GENERAL INFORMATION END */}

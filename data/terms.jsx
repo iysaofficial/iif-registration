@@ -7,10 +7,10 @@ export const indonesiaTerms = (
         PowerPoint) setelah dua kali pengingat akan dianggap mengundurkan diri
         secara otomatis.
       </li>
-      <li>
+      {/* <li>
         Peserta wajib menggunakan judul dan extended abstract yang sesuai dengan
         kategori yang diikuti.
-      </li>
+      </li> */}
       <li>
         Keputusan panitia terkait hal ini bersifat final dan tidak dapat
         diganggu gugat.
